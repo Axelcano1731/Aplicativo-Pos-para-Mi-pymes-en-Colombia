@@ -1,0 +1,19 @@
+:root {
+    --color-primary: #6B5B95;        
+    --color-secondary: #A2D5C6;      
+    --color-background: #CBAACB;     
+    --color-text: #E0E0E0;           
+    --color-button-hover: #6B5B95;   
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+}
+
+input{
+    width: 40%;
+    height: 50px;
+}
