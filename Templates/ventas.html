@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Ventas por clientes</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='Styles/StyleVentas.css') }}">
+</head>
+<body>
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav>
+			<a href="#">Recaudo</a>
+			<a href="#">Lista de facturas</a>
+			<a href="#">Cuadre de caja</a>
+			<a href="#">Movimiento de caja</a>
+			<a href="#">Comprobante informe diario</a>
+			<a href="#">Ventas de producto</a>
+		</nav>
+		<label for="btn-menu">✖️</label>
+	</div>
+</div>
+    <div id="content">
+		<div class="content-tittle">
+			<div class="btn-menu">
+				<label for="btn-menu">☰</label>
+			</div>
+			<h1>Ventas por Cliente</h1>
+		</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Total de Ventas</th>
+                    <th>Fecha de Última Compra</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Juan Pérez</td>
+                    <td>$5,000.00</td>
+                    <td>2023-01-15</td>
+                </tr>
+                <tr>
+                    <td>Maria López</td>
+                    <td>$7,500.00</td>
+                    <td>2023-01-20</td>
+                </tr>
+                <tr>
+                    <td>Carlos Sánchez</td>
+                    <td>$3,200.00</td>
+                    <td>2023-02-05</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

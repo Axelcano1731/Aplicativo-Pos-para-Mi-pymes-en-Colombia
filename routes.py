@@ -54,11 +54,23 @@ def Inicio():
         return render_template('Inicio.html')
     else:
         return redirect(url_for('login'))
+    
+@app.route('/Factura')
+def Factura():
+    return render_template('factura.html')
+
+@app.route('/Ventas')
+def Ventas():
+    return render_template('ventas.html')
+
+@app.route('/FormProductos')
+def Ventas():
+    return render_template('FormProductos.html')
 
 @app.route('/logout')
 def logout():
     session.clear()
-    return 'Logged out successfully'
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)

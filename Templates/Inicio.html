@@ -23,53 +23,34 @@
                     <li>Movimiento de caja</li>
                     <li>Comprobante informe diario</li>
                     <li>Ventas por producto</li>
+                    <li><button class="logout" id="logout">Cerrar sesion</button></li>
                 </ul>
             </div>
         </Section>
     </div>
     <div class="container_1">
         <nav>
-            <input type="text" placeholder="Buscar">
-            <button>
+            <input type="text" id="searchInput" placeholder="Buscar">
+            <button onclick="buscar()">
                 <img src="{{ url_for('static', filename='Image/Lupa.png') }}">
             </button>
         </nav>
 
         <section>
             <div class="fila_1">
-                <div>
-                    <p>producto 1</p>
-                </div>
-                <div>
-                    <p>producto 2</p>
-                </div> 
-                <div>
-                    <p>producto 3</p>
-                </div> 
-                <div>
-                    <p>producto 4</p>
-                </div> 
-                <div>
-                    <p>producto 5</p>
-                </div>
+                <div><p>producto 1</p></div>
+                <div><p>producto 2</p></div> 
+                <div><p>producto 3</p></div> 
+                <div><p>producto 4</p></div> 
+                <div><p>producto 5</p></div>
             </div>
-
+        
             <div class="fila_2">
-                <div>
-                    <p>producto 6</p>
-                </div>
-                <div>
-                    <p>producto 7</p>
-                </div> 
-                <div>
-                    <p>producto 8</p>
-                </div> 
-                <div>
-                    <p>producto 9</p>
-                </div> 
-                <div>
-                    <p>producto 10</p>
-                </div>
+                <div><p>producto 6</p></div>
+                <div><p>producto 7</p></div> 
+                <div><p>producto 8</p></div> 
+                <div><p>producto 9</p></div> 
+                <div><p>producto 10</p></div>
             </div>
         </section>
     </div>
@@ -77,26 +58,41 @@
 
     <div class="container_2">
         <p>Facturar</p>
-
-        <section>
-            <div><p>Producto 1</p></div>
-            <div><p>Producto 2</p></div>
-            <div><p>Producto 3</p></div>
-            <div><p>Producto 4</p></div>
-            <div><p>Producto 5</p></div>
-            <div><p>Producto 6</p></div>
-            <div><p>Producto 6</p></div>
-            <div><p>Producto 6</p></div>
-            <div><p>Producto 6</p></div>
-            <div><p>Producto 6</p></div>
-            <div><p>Producto 6</p></div>
-            <div><p>Producto 6</p></div>
+        <section id="resultadosContainer">
         </section>
 
-        <button>
-            <p>Pagar</p>
-        </button>
-
+    <div id="recibo">
+        <h1>Recibo de Pago</h1>
+            </div>     
+        <button onclick="imprimirRecibo()">Imprimir Recibo</button>
     </div>
-</body>
+        <script>
+        function buscar() {
+            var query = document.getElementById("searchInput").value.toLowerCase();
+            var productos = document.querySelectorAll('.container_1 section div p');
+            var resultados = [];
+            productos.forEach(function (producto) {
+                var nombreProducto = producto.innerText.toLowerCase();
+                if (nombreProducto.includes(query)) {
+                resultados.push('<div><p>' + nombreProducto + '</p></div>');
+            }
+            });
+            var resultadosContainer = document.getElementById("resultadosContainer");
+            resultadosContainer.innerHTML = resultados.join('');
+        }
+        </script>
+        <script>
+            function imprimirRecibo() {
+            var contenidoRecibo = document.getElementById('recibo').innerHTML;
+            var contenidoOriginal = document.body.innerHTML;
+    
+            document.body.innerHTML = contenidoRecibo;
+    
+            window.print();
+    
+            document.body.innerHTML = contenidoOriginal;
+            }
+    
+        </script> 
+    </body>
 </html>
