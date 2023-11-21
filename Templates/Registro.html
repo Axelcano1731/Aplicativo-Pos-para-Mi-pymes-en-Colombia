@@ -22,18 +22,19 @@
             <input type="text" placeholder="Cedula" name="usu_ced" id="usu_ced">
             <input type="text" placeholder="Telefono" name="usu_tel" id="usu_tel">
             <select name="usu_sex" id="usu_sex" required>
-                <option value="" disabled selected>Selecciona...</option>
+                <option value="" disabled selected>Selecciona tu genero...</option>
                 <option value="M">Masculino</option>
                 <option value="F">Femenino</option>
                 <option value="O">Otro</option>
             </select>
             <input type="email" placeholder="Correo Electronico" name="usu_correo" id="usu_correo">
             <input type="password" placeholder="Contraseña" name="usu_password" id="usu_password">
-            <!-- <input type="password" placeholder="Confirma tu contraseña"> -->
+            <input type="password" placeholder="Confirma tu contraseña" id="usu_confirm_password">
+            <p class="Parametros">La contraseña debe tener como minimo 8 caracteres y una letra mayuscula.</p>
         </form>
         <form class="form_2">
             <input type="checkbox" name="veificacion">
-            <label for="veificacion">Acepto terminos y condiciones</label>
+            <label for="veificacion" name="verificacion" id="verificacion">Acepto terminos y condiciones</label>
         </form>
 
         <button id="registroButton">Registrarse</button>
