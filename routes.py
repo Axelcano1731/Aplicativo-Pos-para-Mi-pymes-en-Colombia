@@ -58,7 +58,7 @@ def Inicio():
 @app.route('/logout')
 def logout():
     session.clear()
-    return 'Logged out successfully'
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)

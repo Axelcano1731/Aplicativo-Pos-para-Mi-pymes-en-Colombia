@@ -4,3 +4,9 @@ $(document).ready(function () {
         $("body").toggleClass("menu_abierto");
     });
 });
+
+$(document).ready(function () {
+    $("#logout").click(function () {
+        window.location.href = "/logout";
+    });
+});
