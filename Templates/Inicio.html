@@ -60,9 +60,10 @@
     <section id="resultadosContainer">
     </section>
 
-    <button>
-      <p>Pagar</p>
-    </button>
+    <div id="recibo">
+      <h1>Recibo de Pago</h1>      
+          </div>
+    <button onclick="imprimirRecibo()">Imprimir Recibo</button>
   </div>
   <script>
     function buscar() {
@@ -79,5 +80,18 @@
       resultadosContainer.innerHTML = resultados.join('');
     }
   </script>
+   <script>
+        function imprimirRecibo() {
+        var contenidoRecibo = document.getElementById('recibo').innerHTML;
+        var contenidoOriginal = document.body.innerHTML;
+
+        document.body.innerHTML = contenidoRecibo;
+
+        window.print();
+
+        document.body.innerHTML = contenidoOriginal;
+        }
+              
+      </script> 
 </body>
 </html>
