@@ -44,6 +44,12 @@ $(document).ready(function(){
             alert("Las contraseñas no coinciden. Por favor, inténtelo de nuevo.");
             return;
         }
+
+        // Validar el formato del correo electrónico
+        if (!validarCorreoElectronico(usu_correo)) {
+            alert("El formato del correo electrónico no es válido. Por favor, inténtelo de nuevo.");
+            return;
+        }
         
         $.ajax({
             url: registro_url,
@@ -68,18 +74,23 @@ $(document).ready(function(){
         });
     });
     
-            //Parametros minimos para la ceacion de la contraseña
-        function validarContrasena(contrasena) {
-            
-            if (contrasena.length < 8) {
-                return false;
-            }
-            if (!/[A-Z]/.test(contrasena)) {
-                return false;
-            }
-            if (!/[0-9]/.test(contrasena) || !/[a-zA-Z]/.test(contrasena)) {
-                return false;
-            }
-            return true;
+    // Parámetros mínimos para la creación de la contraseña
+    function validarContrasena(contrasena) {
+        if (contrasena.length < 8) {
+            return false;
         }
-    });
+        if (!/[A-Z]/.test(contrasena)) {
+            return false;
+        }
+        if (!/[0-9]/.test(contrasena) || !/[a-zA-Z]/.test(contrasena)) {
+            return false;
+        }
+        return true;
+    }
+
+    // Validar el formato del correo electrónico
+    function validarCorreoElectronico(correo) {
+        var formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return formatoCorreo.test(correo);
+    }
+});
